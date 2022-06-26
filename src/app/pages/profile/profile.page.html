@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="profiles">{{profiles.id}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="profile" *ngIf="profiles">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide [style.background-image]="'url('+ profiles.image +')'"></ion-slide>
+    </ion-slides>
+    <ion-card class="ion-no-margin">
+      <ion-card-content>
+        <p class="header">Name : {{profiles.name}}</p>
+        <p class="profile">Age : {{profiles.age}}</p>
+        <p class="profile">Height : {{profiles.height}}</p>
+        <p class="profile">Language :{{profiles.language}}</p>
+        <p class="profile">House : {{profiles.caste}}</p>
+        <p class="profile">Job : {{profiles.work}}</p>
+        <p class="profile">Address : {{profiles.location}},{{profiles.state}}, {{profiles.nationality}}</p>
+        <ion-text class="line"></ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

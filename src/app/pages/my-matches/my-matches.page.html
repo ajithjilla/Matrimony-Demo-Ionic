@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="h-60 pd-10">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Matches</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let profile of profiles">
+        <ion-card>
+          <ion-card-header class="ion-no-padding" [style.background-image]="'url('+ profile.image +')'" (click)="showProfile(profile.id)"></ion-card-header>
+          <ion-card-content class="ion-no-padding">
+            <p class="header">{{profile.name}}</p>
+            <p class="profile">{{profile.age}}, {{profile.height}}, {{profile.language}}, {{profile.caste}},</p>
+            <p class="profile">{{profile.work}}, {{profile.location}},</p>
+            <p class="profile">{{profile.state}}, {{profile.nationality}}</p>
+            <ion-row class="footer-card">
+              <ion-col size="6">
+                <ion-button color="dark" size="small" shape="round" (click)="showProfile(profile.id)">Yes</ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button color="light" size="small" shape="round">No</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+
+</ion-content>
